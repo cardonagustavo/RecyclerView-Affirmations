@@ -9,29 +9,30 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.affirmations.MainActivity
 import com.example.affirmations.R
 import com.example.affirmations.model.Affirmation
+import org.junit.runner.manipulation.Ordering
 
 /**
- * Adapter for the [RecyclerView] in [MainActivity]. Displays [Affirmation] data object.
+ * Adaptador para el [RecyclerView] en [MainActivity]. Muestra objetos de datos [Affirmation].
  */
 class ItemAdapter(
-    private val context: MainActivity,
+    private val context: Ordering.Context,
     private val dataset: List<Affirmation>
-): RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
+) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 
-    // Provide a reference to the views for each data item
-    // Complex data items may need more than one view per item, and
-    // you provide access to all the views for a data item in a view holder.
-    // Each data item is just an Affirmation object.
-    class ItemViewHolder(private val view: View): RecyclerView.ViewHolder(view) {
+    // Proporciona una referencia a las vistas para cada elemento de datos.
+    // Los elementos de datos complejos pueden necesitar más de una vista por elemento,
+    // y se proporciona acceso a todas las vistas para un elemento de datos en un ViewHolder.
+    // Cada elemento de datos es simplemente un objeto Affirmation.
+    class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         val textView: TextView = view.findViewById(R.id.item_title)
         val imageView: ImageView = view.findViewById(R.id.item_image)
     }
 
     /**
-     * Create new views (invoked by the layout manager)
+     * Crea nuevas vistas (invocado por el administrador de diseño).
      */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-        // create a new view
+        // Crea una nueva vista
         val adapterLayout = LayoutInflater.from(parent.context)
             .inflate(R.layout.list_item, parent, false)
 
@@ -39,16 +40,16 @@ class ItemAdapter(
     }
 
     /**
-     * Replace the contents of a view (invoked by the layout manager)
+     * Reemplaza el contenido de una vista (invocado por el administrador de diseño).
      */
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = dataset[position]
         holder.textView.text = context.resources.getString(item.stringResourceId)
-        holder.imageView.setImageResource(item.imageResourcedId)
+        holder.imageView.setImageResource(item.imageResourceId)
     }
 
     /**
-     * Return the size of your dataset (invoked by the layout manager)
+     * Devuelve el tamaño de tu conjunto de datos (invocado por el administrador de diseño).
      */
     override fun getItemCount() = dataset.size
 }

@@ -1,30 +1,30 @@
 @file:Suppress("UNUSED_EXPRESSION")
 
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    id("com.android.application") // Plugin para una aplicación de Android
+    id("org.jetbrains.kotlin.android") // Plugin para admitir Kotlin en Android
 }
 
 android {
-    namespace = "com.example.affirmations"
-    compileSdk = 34
+    namespace = "com.example.affirmations" // Namespace de la aplicación
+    compileSdk = 34 // Versión del SDK de compilación de Android
 
     defaultConfig {
-        applicationId = "com.example.affirmations"
-        minSdk = 22
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        applicationId = "com.example.affirmations" // ID del paquete de la aplicación
+        minSdk = 22 // Versión mínima de Android que admite la aplicación
+        targetSdk = 34 // Versión de Android a la que se dirige la aplicación
+        versionCode = 1 // Código de versión de la aplicación
+        versionName = "1.0" // Nombre de versión de la aplicación
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner" // Runner de pruebas de instrumentación
         vectorDrawables {
-            useSupportLibrary = true
+            useSupportLibrary = true // Habilita el uso de vectores en la aplicación
         }
     }
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = false // Deshabilita la minificación en el tipo de compilación "release"
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -32,27 +32,27 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_1_8 // Configuración de compatibilidad de origen
+        targetCompatibility = JavaVersion.VERSION_1_8 // Configuración de compatibilidad de destino
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "1.8" // Versión de destino de JVM para Kotlin
     }
     buildFeatures {
-        compose = true
+        compose = true // Habilita Compose para la interfaz de usuario
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.3"
+        kotlinCompilerExtensionVersion = "1.4.3" // Versión del compilador de Kotlin para Compose
     }
     packaging {
         resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            excludes += "/META-INF/{AL2.0,LGPL2.1}" // Excluye ciertos recursos en el empaquetado
         }
     }
 }
 
 dependencies {
-
+    // Dependencias del proyecto, incluyendo bibliotecas de AndroidX, Compose, material design, pruebas, Mockito, etc.
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
     implementation("androidx.activity:activity-compose:1.7.2")
