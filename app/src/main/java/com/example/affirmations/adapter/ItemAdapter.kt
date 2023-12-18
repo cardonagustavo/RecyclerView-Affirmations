@@ -9,13 +9,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.affirmations.MainActivity
 import com.example.affirmations.R
 import com.example.affirmations.model.Affirmation
-import org.junit.runner.manipulation.Ordering
 
 /**
  * Adaptador para el [RecyclerView] en [MainActivity]. Muestra objetos de datos [Affirmation].
  */
 class ItemAdapter(
-    private val context: Ordering.Context,
+    private val context: MainActivity,
     private val dataset: List<Affirmation>
 ) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 

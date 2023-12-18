@@ -16,14 +16,16 @@
         android:padding="16dp">
 
         <!-- ImageView para mostrar una imagen asociada al elemento -->
+
+        <!-- TextView para mostrar el título o contenido del elemento -->
+
         <ImageView
             android:id="@+id/item_image"
             android:layout_width="match_parent"
             android:layout_height="194dp"
             android:importantForAccessibility="no"
-            android:scaleType="centerCrop"/>
+            android:scaleType="centerCrop" />
 
-        <!-- TextView para mostrar el título o contenido del elemento -->
         <TextView
             android:id="@+id/item_title"
             android:layout_width="wrap_content"
